@@ -1,0 +1,61 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #2c2c2c;
+    color: aliceblue;
+    user-select: none;
+  }
+
+  .main {
+    display: flex;
+    gap: 200px;
+  }
+
+  .left h3 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+
+  .bit-image {
+    width: 300px;
+  }
+
+  .bit-image:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  .bit-image:active {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+
+  .upgrade {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 330px;
+    height: 60px;
+    border: 4px solid whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .upgrade-img {
+    width: 55px;
+  }
+
+  .bit-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cost-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
