@@ -1,31 +1,50 @@
-const bitImage = document.querySelector('.bit-image');
-const bitCostElement = document.querySelector('.bit-cost');
-const clickerButton = document.querySelector('.upgrade');
-const levelElement = document.querySelector('.level');
+let bitCount = 0;
+let clickerLevel = 0;
+let clickerCost = 10;
 
-bitImage.addEventListener('click', () => {
-    let currentBitCount = parseInt(bitCostElement.textContent);
-    currentBitCount++;
-    bitCostElement.textContent = currentBitCount;
-});
-clickerButton.addEventListener('click', () => {
-    const currentLevel = parseInt(levelElement.textContent);
-    const currentBitCount = parseInt(bitCostElement.textContent);
+const incrementBit = () => {
+  bitCount++;
+  updateBitDisplay();
+};
 
-    if (currentBitCount < 10) {
-        bitCostElement.textContent = 'Not enough bits, try again.';
-        return;
+const buyClickerBit = () => {
+  if (bitCount >= clickerCost) {
+    bitCount -= clickerCost;
+    clickerLevel++;
+    clickerCost *= 2;
+    updateClickerDisplay();
+    updateBitDisplay();
+
+    if (clickerLevel >= 1) {
+      setInterval(incrementBit, 2000);
     }
+  }
+};
 
-    if (currentLevel === 0) {
-        levelElement.textContent = 1;
-    } else if (currentLevel === 1) {
-        levelElement.textContent = 2;
-        bitCostElement.textContent = bitCostElement.textContent * 1.2;
-    } else {
-        levelElement.textContent = currentLevel + 1;
-        bitCostElement.textContent = bitCostElement.textContent * Math.pow(2, currentLevel);
-    }
+const updateBitDisplay = () => {
+  const bitCostElement = document.querySelector('.bit-cost');
+  bitCostElement.textContent = bitCount;
+};
 
-    bitCostElement.textContent = bitCostElement.textContent * 1.2;
+const updateClickerDisplay = () => {
+  const clickerLevelElement = document.querySelector('.level');
+  const clickerCostElement = document.querySelector('.clicker-cost');
+
+  clickerLevelElement.textContent = clickerLevel;
+  clickerCostElement.textContent = clickerCost;
+};
+
+window.addEventListener('load', () => {
+  updateBitDisplay();
+  updateClickerDisplay();
 });
+
+const upgradeClickerBtn = document.querySelector('.upgrade-btn');
+upgradeClickerBtn.addEventListener('click', buyClickerBit);
+
+const backgroundImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Bitcoin_symbol.svg/1200px-Bitcoin_symbol.svg.png';
+document.body.style.backgroundImage = `url(${backgroundImage})`;
+
+const levelCost = (clickerLevel + 1) * 10;
+const levelUpgradeBtn = document.querySelector('.level-double-bit-btn');
+levelUpgradeBtn.textContent = 'Level Double Bit (' + levelCost + ')';
