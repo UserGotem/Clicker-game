@@ -27,5 +27,6 @@ This clicker game is currently in its early stages of development. We are contin
 We welcome contributions from fellow developers to enhance the Clicker-Game experience. Please feel free to submit pull requests with bug fixes, new features, or improvements to the code.
 
 ## Demo or Playable Version:
+![Näyttökuva 2024-01-28 154801](https://github.com/UserGotem/Clicker-game/assets/123076970/88bc0751-cbd9-4510-959c-2d08d172c306)
 
 A playable version of the Clicker-Game is available at [[Link to playable version](https://github.com/UserGotem/Clicker-game)https://github.com/UserGotem/Clicker-game].
